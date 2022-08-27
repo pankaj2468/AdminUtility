@@ -1,0 +1,174 @@
+﻿@model AdminUtility.Areas.Admin.Models.Signup
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <script src="https://unpkg.com/intro.js/minified/intro.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/intro.js/minified/introjs.min.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chetu Admin | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.min.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+
+            <div class="card">
+                <div class="card-body register-card-body">
+                    <p class="login-box-msg">Registration</p>
+                    <p class="text-success text-center">@ViewBag.message</p>
+                    <div asp-validation-summary="All"></div>
+
+                    <form asp-action="SignUp" method="post" class="form-horizontal card__body" data-title="Welcome to Registration Page" data-intro="Please Insert Your Detail...">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input class="form-control card__body " data-title="First Name" data-intro="Please Insert Your First Name..." type="text" placeholder="FirstName" name="FirstName">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input class="form-control card__body" data-title="Last Name" data-intro="Please Insert Your Last Name..." type="text" placeholder="LastName" name="LastName">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input class="form-control card__body" data-title="Email" data-intro="Please Insert Your Email..." type="email" placeholder="Email" name="Email">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <div class="input-group mb-3">
+                                <input type="Password" class="form-control card__body" data-title="Password" data-intro="Please Insert Your Password..." placeholder="Password" name="Password" formmethod="post">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <div class="input-group mb-3">
+                                <input type="Password" class="form-control card__body" data-title="ConfirmPassword" data-intro="Please Insert Your Confirm Password..." placeholder="ConfirmPassword" name="ConfirmPassword" formmethod="post">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        @*<div class="input-group mb-3">
+                                <select class="form-control card__body" data-title="Gender" data-intro="Please Insert Your Gender..." asp-for="Gender">
+                                    <option value="">select</option>
+                                    <option value="male">male</option>
+                                    <option value="female">female</option>
+                                    <option value="transgender">transgender</option>
+                                </select>
+
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-genderless"></span>
+                                    </div>
+                                </div>
+                            </div>*@
+
+                        <div class="Input-group">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control card__body" data-title="Phone number" data-intro="Please Insert Your Phone number..." placeholder="Phone number" name="Phone" formmethod="post">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+
+                                        <span class="fas fa-mobile"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span asp-validation-for="Phone " class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8">
+                                you have already signup so click me.....
+                                <a class="btn btn-primary" href='@Url.Action("Login", "Logged", new { area = "Admin" })'>
+                                    Login
+                                </a>
+                                @*<a asp-area="Admin" asp-controller="Logged" asp-action="Login" class="btn btn-primary btn-block">Login</a>*@
+                                @*<div class="icheck-primary">
+                                        <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                        <label for="agreeTerms">
+                                            I agree to the <a href="#">terms</a>
+                                        </label>
+                                    </div>*@
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-primary btn-block">SignUp</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                    </form>
+
+
+
+                </div>
+                <!-- /.form-box -->
+            </div><!-- /.card -->
+            <!-- /.register-box -->
+        </div>
+
+    </div>
+    <script>
+        introJs().start()
+    </script>
+</body>
+
